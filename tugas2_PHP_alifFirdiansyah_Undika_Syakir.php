@@ -94,13 +94,13 @@
 
                 $tunjanganJabatan = $gapok * 0.2;
 
-                if ($statusMenikah == 'Menikah' && $jumlahAnak <= 2) {
+               if ($statusMenikah == 'Menikah' && $jumlahAnak <= 2) {
                     $tunjanganKeluarga = $gapok * 0.05;
-                } else if ($statusMenikah == 'Menikah' && $jumlahAnak >= 3 || $jumlahAnak <= 5) {
+                } else if ($statusMenikah == 'Menikah' && $jumlahAnak >= 3 && $jumlahAnak <= 5) {
                     $tunjanganKeluarga = $gapok * 0.1;
                 } else if ($statusMenikah == 'Menikah' && $jumlahAnak >= 5) {
                     $tunjanganKeluarga = $gapok * 0.15;
-                } else {
+                } else if ($statusMenikah == 'Belum') {
                     $tunjanganKeluarga = 0;
                 }
 
