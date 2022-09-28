@@ -69,12 +69,13 @@
                     <button class="btn btn-success btn-lg" id="submitButton" type="submit" name="simpan">Simpan</button>
                 </div>
                 <?php
+                //set variabel
                 $namaLengkap = $_POST['namaLengkap'];
                 $agama = $_POST['agama'];
                 $jabatan = $_POST['jabatan'];
                 $statusMenikah = $_POST['statusMenikah'];
                 $jumlahAnak = $_POST['jumlahAnak'];
-
+                //set gaji pokok sesuai jabatan
                 switch ($jabatan) {
                     case 'Manager':
                         $gapok = 20000000;
@@ -91,9 +92,10 @@
                     default:
                         $gapok = 0;
                 }
-
+                //hitung tunjangan jabatan
                 $tunjanganJabatan = $gapok * 0.2;
-
+                
+                //hitung tunjangan keluarga
                if ($statusMenikah == 'Menikah' && $jumlahAnak <= 2) {
                     $tunjanganKeluarga = $gapok * 0.05;
                 } else if ($statusMenikah == 'Menikah' && $jumlahAnak >= 3 && $jumlahAnak <= 5) {
@@ -103,12 +105,15 @@
                 } else if ($statusMenikah == 'Belum') {
                     $tunjanganKeluarga = 0;
                 }
-
+                
+                //hitung gaji kotor
                 $gajiKotor = $gapok + $tunjanganJabatan + $tunjanganKeluarga;
-
+                
+                //hitung zakat profesi
                 if ($agama == "Islam" && $gajiKotor >= 6000000) $zakatProfesi = 0.025 * $gajiKotor;
                 else $zakatProfesi = 0;
 
+                //hitung take home pay
                 $takeHomePay = $gajiKotor - $zakatProfesi;
                 ?>
             </form>
