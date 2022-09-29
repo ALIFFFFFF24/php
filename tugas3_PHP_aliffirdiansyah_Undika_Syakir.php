@@ -32,7 +32,7 @@ $keterangan = [
     'Jumlah Mahasiswa' => $jumlah_mahasiswa,
     'Nilai Tertinggi' => $max_nilai,
     'Nilai Terendah' => $min_nilai,
-    'Rata2' => $rata2
+    'Rata Rata' => $rata2
 ];
 ?>
 <!doctype html>
