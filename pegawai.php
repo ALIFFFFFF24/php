@@ -51,7 +51,7 @@ class Pegawai
     //method set tunjangan keluarga
     public function setTunkel()
     {
-        $tunkel = ($this->status == 'menikah') ? $this->setGapok() * 0.01 : 0;
+        $tunkel = ($this->status == 'menikah') ? $this->setGapok() * 0.1 : 0;
         return $tunkel;
     }
 
@@ -65,7 +65,7 @@ class Pegawai
     //method set zakat profesi
     public function setZakatProfesi()
     {
-        $zaprof = ($this->agama == 'muslim' && $this->setGator() >= 6000000) ? $this->setGator() * 0.025 : 0;
+        $zaprof = ($this->agama == 'muslim' && $this->setGator() >= 6000000) ? $this->setGator() * 0.25 : 0;
         return $zaprof;
     }
 
