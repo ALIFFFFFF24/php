@@ -44,7 +44,7 @@ class Pegawai
     //metohd set tunjangan jabatan
     public function setTunjab()
     {
-        $tunjab = $this->setGapok() * 0.02;
+        $tunjab = $this->setGapok() * 0.2;
         return $tunjab;
     }
 
@@ -65,7 +65,7 @@ class Pegawai
     //method set zakat profesi
     public function setZakatProfesi()
     {
-        $zaprof = ($this->agama == 'muslim' && $this->setGator() >= 6000000) ? $this->setGator() * 0.25 : 0;
+        $zaprof = ($this->agama == 'muslim' && $this->setGator() >= 6000000) ? $this->setGator() * 0.025 : 0;
         return $zaprof;
     }
 
