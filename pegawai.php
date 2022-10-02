@@ -1,16 +1,14 @@
 <?php
-//class pegawai
-class pegawai
+class Pegawai
 {
-    //variabel pegawai
-    protected $nip;
+    //variable
+    private $nip;
     public $nama;
     public $jabatan;
     public $agama;
     public $status;
 
-
-    //konstruktor
+    //constructor
     public function __construct($nip, $nama, $jabatan, $agama, $status)
     {
         $this->nip = $nip;
@@ -19,57 +17,79 @@ class pegawai
         $this->agama = $agama;
         $this->status = $status;
     }
-    //pegawai method
-    public function setGajiPokok($jabatan)
+
+    //method set gaji pokok
+    public function setGapok()
     {
-        switch ($jabatan) {
+        switch ($this->jabatan) {
             case 'manager':
-                $this->gapok   = 15000000;
+                $gapok = 15000000;
                 break;
-            case 'asmen':
-                $this->gapok   = 10000000;
+            case 'asisten manager':
+                $gapok = 10000000;
                 break;
-            case 'kabag':
-                $this->gapok  = 7000000;
+            case 'kepala bagian':
+                $gapok = 7000000;
                 break;
             case 'staff':
-                $this->gapok    = 4000000;
+                $gapok = 4000000;
+                break;
+            default:
+                $gapok = 0;
                 break;
         }
+        return $gapok;
     }
 
-    public function setTunJab()
+    //metohd set tunjangan jabatan
+    public function setTunjab()
     {
-        $this->tunjab = $this->gapok * 0.02;
+        $tunjab = $this->setGapok() * 0.02;
+        return $tunjab;
     }
 
-    public function setTunKel($status)
+    //method set tunjangan keluarga
+    public function setTunkel()
     {
-        $this->tunjKel = ($status == 'menikah') ? $this->gapok * 0.01 : 0;
+        $tunkel = ($this->status == 'menikah') ? $this->setGapok() * 0.01 : 0;
+        return $tunkel;
     }
 
-    public function setGajiKotor()
+    //method set gaji kotor
+    public function setGator()
     {
-        $this->gajiKotor = $this->gapok + $this->tunjab + $this->tunjKel;
+        $gator = $this->setGapok() + $this->setTunjab() + $this->setTunkel();
+        return $gator;
     }
 
-    public function setZakatProfesi($agama)
+    //method set zakat profesi
+    public function setZakatProfesi()
     {
-        if ($agama == 'muslim' && $this->gajiKotor >= 6000000) {
-            $this->zakatProfesi = 0.025 * $this->gapok;
-        }
+        $zaprof = ($this->agama == 'muslim' && $this->setGator() >= 6000000) ? $this->setGator() * 0.025 : 0;
+        return $zaprof;
     }
+
+    //method set gaji bersih
+    public function setGajiBersih()
+    {
+        $gajiBersih = $this->setGator() - $this->setZakatProfesi();
+        return $gajiBersih;
+    }
+
+    // function cetak
     public function mencetak()
     {
+        echo '<hr>';
         echo '<br/>NIP: ' . $this->nip;
-        echo '<br/>Nama: ' . $this->nama;
+        echo '<br/>Nama Pegawai: ' . $this->nama;
         echo '<br/>Jabatan: ' . $this->jabatan;
         echo '<br/>Agama: ' . $this->agama;
         echo '<br/>Status: ' . $this->status;
-        echo '<br/>Gaji Pokok: ' . $this->gapok;
-        echo '<br/>Tunjangan Jabatan: ' . $this->tunjab;
-        echo '<br/>Tunjangan Keluarga: ' . $this->tunjKel;
-        echo '<br/>Gaji Kotor: ' . $this->gajiKotor;
-        echo '<br/>Zakat Profesi: ' . $this->zakatProfesi;
+        echo '<br/>Gaji Pokok: Rp.' . number_format($this->setGapok(), 2);
+        echo '<br/>Tunjangan Jabatan: Rp.' . number_format($this->setTunjab(), 2);
+        echo '<br/>Tunjangan Keluarga: Rp.' . number_format($this->setTunkel(), 2);
+        echo '<br/>Zakat Profesi: Rp.' . number_format($this->setZakatProfesi(), 2);
+        echo '<br/>Gaji Bersih: Rp.' . number_format($this->setGajiBersih(), 2);
+        echo '<hr>';
     }
 }
