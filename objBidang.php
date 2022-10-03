@@ -22,10 +22,10 @@ $judul = ['No', 'Nama Bidang', 'Keterangan', 'Luas Bidang', 'Keliling Bidang'];
 
 <body>
     <div class="container p-5">
-        <div class="row">
+        <div class="row text-center">
             <div class="col">
-                <h1 class="text-center">Menghitung Luas & Keliling Bidang</h1>
-                <table class="table table-bordered text-center">
+                <h1>Menghitung Luas & Keliling Bidang</h1>
+                <table class="table table-bordered">
                     <thead class="table-danger">
                         <tr>
                             <?php
@@ -39,23 +39,23 @@ $judul = ['No', 'Nama Bidang', 'Keterangan', 'Luas Bidang', 'Keliling Bidang'];
                         <tr>
                             <td>1</td>
                             <td><?= $lingkaran->namaBidang() ?></td>
-                            <td>Jari - jari = <?= $lingkaran->jari2 ?></td>
-                            <td><?= $lingkaran->luasBidang() ?></td>
-                            <td><?= $lingkaran->kelilingBidang() ?></td>
+                            <td>Jari - jari = <?= $lingkaran->jari2 ?> Cm</td>
+                            <td><?= $lingkaran->luasBidang() ?> Cm</td>
+                            <td><?= $lingkaran->kelilingBidang() ?> Cm</td>
                         </tr>
-                        <tr rowspan="2">
+                        <tr>
                             <td>2</td>
                             <td><?= $persegiPanjang->namaBidang() ?></td>
-                            <td>Panjang = <?= $persegiPanjang->panjang ?> <br> Lebar = <?= $persegiPanjang->lebar ?></td>
-                            <td><?= $persegiPanjang->luasBidang() ?></td>
-                            <td><?= $persegiPanjang->kelilingBidang() ?></td>
+                            <td>Panjang = <?= $persegiPanjang->panjang ?> Cm & Lebar = <?= $persegiPanjang->lebar ?> Cm</td>
+                            <td><?= $persegiPanjang->luasBidang() ?> Cm</td>
+                            <td><?= $persegiPanjang->kelilingBidang() ?> Cm</td>
                         </tr>
-                        <tr rowspan="2">
+                        <tr>
                             <td>3</td>
                             <td><?= $segitiga->namaBidang() ?></td>
-                            <td>Alas = <?= $segitiga->alas ?> <br> Tinggi = <?= $segitiga->tinggi ?></td>
-                            <td><?= $segitiga->luasBidang() ?></td>
-                            <td><?= $segitiga->kelilingBidang() ?></td>
+                            <td>Alas = <?= $segitiga->alas ?> Cm & Tinggi = <?= $segitiga->tinggi ?> Cm</td>
+                            <td><?= $segitiga->luasBidang() ?> Cm</td>
+                            <td><?= $segitiga->kelilingBidang() ?> Cm</td>
                         </tr>
                     </tbody>
                 </table>
