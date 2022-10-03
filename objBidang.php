@@ -24,6 +24,7 @@ $judul = ['No', 'Nama Bidang', 'Keterangan', 'Luas Bidang', 'Keliling Bidang'];
     <div class="container p-5">
         <div class="row">
             <div class="col">
+                <h1 class="text-center">Menghitung Luas & Keliling Bidang</h1>
                 <table class="table table-bordered text-center">
                     <thead class="table-danger">
                         <tr>
