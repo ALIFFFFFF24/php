@@ -1,14 +1,14 @@
 <?php
 include 'pegawai.php';
 
-// membuat 6 instance object pegawai
+//instance object pegawai
 $p1 = new Pegawai('12345', 'Yessica Tamara', 'manager', 'muslim', 'menikah');
 $p2 = new Pegawai('67890', 'Shani Indira Natio', 'asisten manager', 'kristen', 'belum menikah');
 $p3 = new Pegawai('14234', 'Rangga Pranendra', 'staff', 'hindu', 'menikah');
 $p4 = new Pegawai('76895', 'Bob Fahmi', 'kepala bagian', 'muslim', 'belum menikah');
 $p5 = new Pegawai('08963', 'Muhammad Sumbul', 'staff', 'hindu', 'menikah');
 
-// array associative
+//array
 $pegawai = [$p1, $p2, $p3, $p4, $p5];
 ?>
 
